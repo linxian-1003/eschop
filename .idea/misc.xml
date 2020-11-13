@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FindBugsConfigurable">
+    <option name="make" value="true" />
+    <option name="effort" value="default" />
+    <option name="priority" value="Medium" />
+    <option name="excludeFilter" value="" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka_server/pom.xml" />
+        <option value="$PROJECT_DIR$/product_service/pom.xml" />
+        <option value="$PROJECT_DIR$/order_service/pom.xml" />
+        <option value="$PROJECT_DIR$/product_service_interface/pom.xml" />
+        <option value="$PROJECT_DIR$/apigateway/pom.xml" />
+        <option value="$PROJECT_DIR$/config_server/pom.xml" />
+        <option value="$PROJECT_DIR$/member_service_interface/pom.xml" />
+        <option value="$PROJECT_DIR$/member_service/pom.xml" />
+        <option value="$PROJECT_DIR$/adv_service/pom.xml" />
+        <option value="$PROJECT_DIR$/auth_common/pom.xml" />
+        <option value="$PROJECT_DIR$/auth_service/pom.xml" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/baseMapper/pom.xml" />
+        <option value="$PROJECT_DIR$/baseController/pom.xml" />
+        <option value="$PROJECT_DIR$/baseService/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SuppressionsComponent">
+    <option name="suppComments" value="[]" />
+  </component>
+</project>

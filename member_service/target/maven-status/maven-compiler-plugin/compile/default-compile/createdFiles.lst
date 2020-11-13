@@ -1,0 +1,5 @@
+com\neu\member_service\service\MemberService.class
+com\neu\member_service\MemberServiceApplication.class
+com\neu\member_service\controller\MemberController.class
+com\neu\member_service\service\impl\MemberServiceImpl.class
+com\neu\member_service\dao\MemberDao.class

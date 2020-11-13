@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+    当前父组件的num的值<span v-text="num"></span><br/>
+    <!--父组件的函数绑定到子组件上-->
+    <my_num v-bind:num="num" @add="add" @reduce="reduce"></my_num>
+</div>
+<script type="text/javascript">
+    Vue.component("my_num",{
+        template:'<div>' +
+            '<button v-on:click="add">添加</button><br>' +
+            '<button v-on:click="reduce">减少</button>'+
+            '<span v-text="num"></span>'+
+            '</div>',
+        props:["num"],
+        methods:{
+            add(){
+                this.$emit("add");
+            },
+            reduce(){
+                this.$emit("reduce");
+            }
+        }
+    })
+
+    var vue = new Vue({   //新建Vue实例
+        el:"#app",  //el(element),代表要渲染页面的根元素
+        data:{      //设置数据
+            num:0
+        },
+        methods:{
+            add(){
+                this.num++;
+            },
+            reduce(){
+                this.num--;
+            }
+        }
+    });
+</script>
+
+
+</body>
+</html>

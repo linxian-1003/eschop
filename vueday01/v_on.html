@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入vue.js-->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <pre>
+      v-on的语法
+            v-on:事件名="js片段||vue中定义的函数名"
+  </pre>
+
+  <div id="app">
+      <p>当前年龄：{{age}}</p>
+
+      <button v-on:click="age++">添加</button>
+      <button v-on:click="minu($event,2)">减少</button>
+
+  </div>
+
+<script>
+
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            age:10
+        },
+        methods:{
+            minu:function (event,step) {
+                console.log(event);
+                this.age = this.age-step;
+
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

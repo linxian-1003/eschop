@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+      <button v-on:click="show=!show">切换</button>
+
+     <ul>
+         <li v-for="user in users" v-if="user.age>2">
+             {{user.name}}:{{user.age}}
+         </li>
+
+     </ul>
+      <p v-if="num>=0.9">
+          大于0.9，当前值{{num}}
+      </p>
+      <p v-else-if="num>=0.8">
+          大于0.8，当前值{{num}}
+      </p>
+      <p v-else>
+          小于0.8，当前值{{num}}
+      </p>
+  </div>
+<script>
+
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            show:true,
+            users:[
+                {"name":"leo","age":1},
+                {"name":"jennie","age":3},
+                {"name":"haruto","age":4},
+            ],
+            num:0.9
+
+        }
+
+    })
+</script>
+
+
+</body>
+</html>

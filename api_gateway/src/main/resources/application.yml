@@ -1,0 +1,58 @@
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      #用来指定注册服务中心地址
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    instance-id: apiGatewayService
+    #设置访问路径可以显示ip地址
+    prefer-ip-address: true
+
+    lease-expiration-duration-in-seconds: 90  #服务失效时间，默认值90秒
+    lease-renewal-interval-in-seconds: 30  #服务续约(renew)的间隔，默认为30秒
+
+
+spring:
+  application:
+    name: api-gateway
+
+zuul:
+  routes:
+    product-service: /apiGateway/product/**
+    order-service: /apiGateway/order/**
+    member-service: /apiGateway/member/**
+    adv-service: /apiGateway/adv/**
+    auth-service: /apiGateway/auth/**
+  ignored-patterns: /*-service/** #忽律匹配的服务（正则）
+  #ignored-services: product-service #忽律具体的服务
+  sensitive-headers:
+
+
+
+#设置hystrix的超时时间和ribbon读取超时时间
+ribbon:
+  #对应负载策略规则
+  ConnectTimeout: 6000  #连接
+  ReadTimeout: 6000 #读取超时时间
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
+
+neu:
+  auth:
+    expire: 1800
+    publicKeyPath: d:\\pub.rsa
+    privateKeyPath: d:\\pri.rsa
+    seek: 123456
+    exclude: /apiGateway/auth/auths/login,/apiGateway/product/products,/apiGateway/product,/apiGateway/order/books,/apiGateway/member/members,/apiGateway/order/books/bookDetail

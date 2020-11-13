@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/adv_service/adv_service.iml" filepath="$PROJECT_DIR$/adv_service/adv_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api_gateway/api_gateway.iml" filepath="$PROJECT_DIR$/api_gateway/api_gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth_common/auth_common.iml" filepath="$PROJECT_DIR$/auth_common/auth_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth_service/auth_service.iml" filepath="$PROJECT_DIR$/auth_service/auth_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseController/baseController.iml" filepath="$PROJECT_DIR$/baseController/baseController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseMapper/baseMapper.iml" filepath="$PROJECT_DIR$/baseMapper/baseMapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baseService/baseService.iml" filepath="$PROJECT_DIR$/baseService/baseService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config_server/config_server.iml" filepath="$PROJECT_DIR$/config_server/config_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka_server/eureka_server.iml" filepath="$PROJECT_DIR$/eureka_server/eureka_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/member_service/member_service.iml" filepath="$PROJECT_DIR$/member_service/member_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/member_service_interface/member_service_interface.iml" filepath="$PROJECT_DIR$/member_service_interface/member_service_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order_service/order_service.iml" filepath="$PROJECT_DIR$/order_service/order_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product_service/product_service.iml" filepath="$PROJECT_DIR$/product_service/product_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/product_service_interface/product_service_interface.iml" filepath="$PROJECT_DIR$/product_service_interface/product_service_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vueday01/vueday01.iml" filepath="$PROJECT_DIR$/vueday01/vueday01.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+      v-text:原封不动显示
+      <div v-text="text"></div>  <!--{{text}}-->
+
+      v-html:会当做html来执行
+      <div v-html="html"></div>  <!--{{html}}-会当做html来执行-->
+  </div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            text:"<a href='http://baidu.com'>跳转</a>",
+            html:"<a href='http://baidu.com'>跳转</a>"
+        }
+    });
+</script>
+
+</body>
+</html>

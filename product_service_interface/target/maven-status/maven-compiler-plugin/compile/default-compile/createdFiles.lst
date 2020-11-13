@@ -1,0 +1,8 @@
+com\neu\product_service\domain\Brand.class
+com\neu\product_service\query\ProductTypeQuery.class
+com\neu\product_service\query\PayQuery.class
+com\neu\product_service\domain\Pay.class
+com\neu\product_service\domain\Product.class
+com\neu\product_service\domain\ProductType.class
+com\neu\product_service\query\ProductQuery.class
+com\neu\product_service\query\BrandQuery.class

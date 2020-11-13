@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入vue.js-->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <pre>
+      v-for
+       遍历
+           |--数组
+           |--对象
+  </pre>
+
+  <div id="app">
+      <br>
+      简单数组:
+      <ul>
+          <li v-for="name in names">{{name}}</li>
+      </ul>
+
+      <br>简单数组+下标:
+      <ul>
+          <li v-for="(name,index) in names">{{name}}--{{index}}</li>
+      </ul>
+
+      <br>对象数组+下标:
+      <ul>
+          <li v-for="(user,index) in users">{{user}}--{{index}}</li>
+      </ul>
+
+      <br>遍历对象：
+      <ul>
+          <li v-for="(proVal,proName,index) in users">{{proVal}}--{{proName}}--{{index}}</li>
+      </ul>
+
+      <br>遍历对象：
+      <ul>
+          <li v-for="proVal in user">{{proVal}}</li>
+      </ul>
+
+
+  </div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            names:["leo","jennie","haruto"],
+            users:[
+
+                {"id":1,"name":"zs"},
+                {"id":2,"name":"ls"},
+                {"id":3,"name":"ww"}
+            ],
+            user:{"id":1,"name":"zs"}
+        }
+    })
+</script>
+
+</body>
+</html>

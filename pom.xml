@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.neu</groupId>
+    <artifactId>eschop</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>eschop</name>
+    <description>Demo project for Spring Boot</description>
+
+    <modules>
+        <module>eureka_server</module>
+        <module>product_service</module>
+        <module>member_service</module>
+        <module>order_service</module>
+        <module>adv_service</module>
+        <module>auth_service</module>
+        <module>auth_common</module>
+        <module>product_service_interface</module>
+        <module>member_service_interface</module>
+        <module>api_gateway</module>
+        <module>config_server</module>
+        <module>common</module>
+        <module>baseService</module>
+        <module>baseController</module>
+        <module>baseMapper</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-mybatis.version>2.1.1</spring-mybatis.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${spring-mybatis.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+  <div id="app">
+      语法1：{{msg}}
+      <br>
+      语法2：当前用户{{name.join(",")}}
+      <br>
+      语法3：有返回值的表达式{{1+1}}
+  </div>
+
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"vue不会太难",
+            name:["zs","ls"]
+        }
+    })
+</script>
+
+</body>
+</html>

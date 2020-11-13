@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <my_hobby v-bind:users="users"></my_hobby>
+</div>
+<script type="text/javascript">
+    Vue.component("my_hobby",{
+        template:'<ul><li v-for="user in users">{{user.name+user.age}}</li></ul>',
+        props:{
+            users:{
+                type:Array,//要求父组件传递的参数类型必须是数组,否则报错
+                default:[]//如果父组件没有传递参数时的默认值
+            }
+        }
+    })
+    //新建Vue实例
+    var vue = new Vue({
+        el:"#app",  //el(element),代表要渲染页面的根元素
+        data:{      //设置数据
+            users:[
+                {"name":"zs","age":1},
+                {"name":"ls","age":2},
+                {"name":"ww","age":3}
+            ]
+        }
+    });
+</script>
+
+</body>
+</html>

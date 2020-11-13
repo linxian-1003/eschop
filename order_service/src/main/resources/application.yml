@@ -1,0 +1,57 @@
+server:
+  port: 7070
+eureka:
+  client:
+    service-url:
+      #用来指定注册服务中心地址
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    instance-id: orderService
+    #设置访问路径可以显示ip地址
+    prefer-ip-address: true
+
+#mybatis配置信息
+mybatis:
+  mapper-locations: classpath:mappers/*Mapper.xml
+  type-aliases-package: com.neu.order_service.domain,com.neu.order_service.query
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql://localhost:3306/eschop
+    driver-class-name: com.mysql.jdbc.Driver
+
+#对应的服务名
+product-service:
+  ribbon:
+    #对应负载策略规则
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ConnectTimeout: 6000  #连接
+    ReadTimeout: 6000 #读取超时时间
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
+#pagehelper配置信息
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+  returnPageInfo: check
+
+
+
