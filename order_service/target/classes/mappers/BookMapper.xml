@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.order_service.dao.BookDao">
+
+    <resultMap id="BaseResultMap" type="book" >
+        <result column="id" property="id" />
+        <result column="member_id" property="memberId"/>
+        <result column="member_name" property="memberName" />
+        <result column="book_num" property="bookNum"/>
+        <result column="total_Price" property="totalPrice" />
+        <result column="total_count" property="totalCount" />
+        <result column="pay_num" property="payNum"/>
+        <result column="pay_type" property="payType" />
+        <result column="pay_time" property="payTime" />
+        <result column="order_time" property="orderTime"/>
+        <result column="address" property="address" />
+        <result column="phone" property="phone" />
+        <result column="status" property="status" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+      id,
+      member_id,
+      member_name,
+      book_num,
+      total_Price,
+      total_count,
+      pay_num,
+      pay_type,
+      pay_time,
+      order_time,
+      address,
+      phone,
+      status
+  </sql>
+  <!--部分字段允许为空-->
+  <insert id="order" parameterType="book" keyColumn="ID" keyProperty="id"  useGeneratedKeys="true">
+    insert into book
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+        member_id,
+        member_name,
+        book_num,
+        total_price,
+        total_count,
+        <if test="payNum != null" >
+            pay_num,
+        </if>
+        <if test="payType != null" >
+            pay_type,
+        </if>
+        <if test="payTime != null" >
+            pay_time,
+        </if>
+        address,
+        phone,
+        order_time,
+        status
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+        #{memberId},
+        #{memberName},
+        #{bookNum},
+        #{totalPrice},
+        #{totalCount},
+       <if test="payNum != null" >
+            #{payNum},
+        </if>
+        <if test="payType != null" >
+            #{payType},
+        </if>
+        <if test="payTime != null" >
+            #{payTime},
+        </if>
+        #{address},
+        #{phone},
+        #{orderTime},
+        #{status}
+    </trim>
+  </insert>
+
+    <select id="findByQuery" resultMap="BaseResultMap" parameterType="bookQuery">
+        select <include refid="Base_Column_List" /> from book
+        <trim prefix="where" prefixOverrides="and |or ">
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+        </trim>
+        order by id DESC
+    </select>
+
+    <update id="update" parameterType="book">
+        update book
+        <set>
+            <if test="memberId != null" >
+                member_id = #{memberId},
+            </if>
+            <if test="memberName != null" >
+                member_name = #{memberName},
+            </if>
+            <if test="totalPrice != null" >
+                total_price = #{totalPrice},
+            </if>
+            <if test="bookNum != null" >
+                bookn_num = #{bookNum},
+            </if>
+            <if test="totalCount != null" >
+                total_count = #{totalCount},
+            </if>
+            <if test="payNum != null" >
+                pay_num = #{payNum},
+            </if>
+            <if test="payType != null" >
+                pay_type = #{payType},
+            </if>
+            <if test="payTime != null" >
+                pay_time = #{payTime},
+            </if>
+            <if test="orderTime != null" >
+                order_time = #{orderTime},
+            </if>
+            <if test="address != null" >
+                address = #{address},
+            </if>
+            <if test="phone != null" >
+                phone = #{phone},
+            </if>
+            <if test="status != null" >
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

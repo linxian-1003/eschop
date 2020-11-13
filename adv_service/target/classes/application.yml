@@ -1,0 +1,32 @@
+server:
+  port: 3030
+eureka:
+  client:
+    service-url:
+      #用来指定注册服务中心地址
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    instance-id: advService
+    #设置访问路径可以显示ip地址
+    prefer-ip-address: true
+
+#mybatis配置信息
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.neu.adv_service.domain
+
+spring:
+  application:
+    name: adv-service
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql://localhost:3306/eschop
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+
+
+
+
+

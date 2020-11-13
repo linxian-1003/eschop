@@ -1,0 +1,45 @@
+server:
+  port: 1112
+eureka:
+  client:
+    service-url:
+      #用来指定注册服务中心地址
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    instance-id: authService
+    #设置访问路径可以显示ip地址
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: auth-service
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    mode: LEGACYHTML5
+    prefix: classpath:/templates/
+
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
+
+
+neu:
+  auth:
+    expire: 1800
+    publicKeyPath: d:\\pub.rsa
+    privateKeyPath: d:\\pri.rsa
+    seek: 123456
+

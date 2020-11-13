@@ -1,0 +1,39 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+    lease-expiration-duration-in-seconds: 90  #服务失效时间，默认值90秒
+    lease-renewal-interval-in-seconds: 30  #服务续约(renew)的间隔，默认为30秒
+    #instance:
+    #instance-id: apiGatewayService
+    #设置访问路径可以显示ip地址
+    prefer-ip-address: true
+
+#服务的名称
+spring:
+  application:
+    name: member-service
+  #指定从哪个配置中心读取
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+      enabled: true
+      label: master
+      profile: test
+  datasource:
+    password: root
+    username: root
+    url: jdbc:mysql://localhost:3306/eschop
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 4040
+
+mybatis:
+  type-aliases-package: com.neu.member_service.domain,com.neu.member_service.query;
+  configuration:
+    cache-enabled: true
+    lazy-loading-enabled: true
+  mapper-locations: classpath:/mapper/*Mapper.xml #指定映射文件所在路径
+

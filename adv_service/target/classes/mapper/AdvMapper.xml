@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.adv_service.dao.AdvDao">
+
+    <select id="findByType" resultType="adv">
+        select *from adv where type = #{type} order by clickCount limit 0,#{size}
+    </select>
+
+</mapper>

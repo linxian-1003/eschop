@@ -1,0 +1,29 @@
+server:
+  port: 6060
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+#https://gitee.com/liuqiangfeng/eshop_config.git
+management:
+  info:
+    git:
+      enabled: true
+
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          password: lx1723130947
+          username: 13827663826
+          uri: https://gitee.com/linxian_1003/eschop_config.git
+          timeout: 5
+          #default-label:代表的是分支
+          default-label: master
+
+

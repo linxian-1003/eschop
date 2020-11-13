@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="screen">
+
+    <script type="text/javascript" src="/js/jquery.js"></script>-->
+</head>
+<body>
+<form id="form_login" method="post">
+    <label for="loginName">登录名</label>
+    <input name="loginName" id="loginName" type="text"/><br>
+    <label for="password">密码</label>
+    <input name="password" id="password" type="password"/><br>
+    <button id="loginBtn">登录</button>
+</form>
+
+<script type="text/javascript" src="/static/jquery/dist/jquery.min.js"/>
+<!--<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"/>-->
+<script>
+
+
+    $(function () {
+        $("#loginBtn").onclick(function () {
+            $.ajax({
+                //几个参数需要注意一下
+                type: "post",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "${pageContext.request.contextPath}/auths/login",//url
+                data: $('#form_login').serialize(),
+                success: function (data) {
+                    console.log(data);//打印服务端返回的数据(调试用)
+                    if (data.resultCode == 200) {
+                        alert("SUCCESS");
+                    }
+                    ;
+                },
+                error : function() {
+                    alert("异常！");
+                }
+            });
+        }
+
+/*
+        $("#form_login").onclick(function () {
+            $.ajax({
+                url:"${pageContext.request.contextPath}/auths/login",
+                type : "post",
+                data: "loginName="+loginName+"&password="+password,
+                success: function(data){
+                    console.log(data);
+                    if(data.result){
+                        //去到首页
+                        window.location.href="main.user";
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            })
+        })*/
+
+    })
+
+</script>
+
+</body>
+</html>

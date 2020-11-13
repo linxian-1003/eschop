@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.member_service.dao.MemberDao">
+
+    <resultMap id="BaseResultMap" type="member">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="login_name" property="loginName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="CHAR"/>
+        <result column="phone" property="phone" jdbcType="CHAR"/>
+        <result column="head_img" property="headImg" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        ID, name, login_name, password,phone,head_img,address
+    </sql>
+
+  <select id="login" resultMap="BaseResultMap">
+   select <include refid="Base_Column_List" /> from member where login_name=#{loginName,jdbcType=VARCHAR} and password=#{password,jdbcType=VARCHAR}
+  </select>
+
+
+   <select id="findById" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> from member where id = #{id,jdbcType=INTEGER}
+  </select>
+
+    <select id="findPayPasswordById" resultType="string">
+        select pay_password from member where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="add" parameterType="member" keyColumn="ID" keyProperty="id"  useGeneratedKeys="true">
+        insert into member
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="name != null" >
+                name,
+            </if>
+            <if test="loginName != null" >
+                login_name,
+            </if>
+            <if test="password != null" >
+                password,
+            </if>
+            <if test="payPassword != null" >
+                pay_password,
+            </if>
+            <if test="phone != null" >
+                phone,
+            </if>
+            <if test="headImg != null" >
+                head_img,
+            </if>
+            <if test="address != null" >
+                address,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="name != null" >
+                #{name},
+            </if>
+            <if test="loginName != null" >
+                #{loginName},
+            </if>
+            <if test="password != null" >
+                #{password},
+            </if>
+            <if test="payPassword != null" >
+                #{payPassword},
+            </if>
+            <if test="phone != null" >
+                #{phone},
+            </if>
+            <if test="headImg != null" >
+                #{headImg},
+            </if>
+            <if test="address != null" >
+                #{address},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 多条件查询 -->
+    <select id="findByQuery" resultMap="BaseResultMap" parameterType="memberQuery">
+        select <include refid="Base_Column_List" /> from member
+        <trim prefix="where" prefixOverrides="and |or ">
+            <if test="name != null">
+                and name = #{name}
+            </if>
+            <if test="loginName != null">
+                and login_name = #{loginName}
+            </if>
+            <if test="phone != null">
+                and phone = #{phone}
+            </if>
+            <if test="address != null">
+                and address = #{address}
+            </if>
+        </trim>
+        order by id DESC
+    </select>
+</mapper>
